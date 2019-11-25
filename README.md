@@ -4,7 +4,7 @@ how to run: python3 pj.py
 
 and you can modify the config in config.py：
 
-```json
+```python
 Config = {
     'img_dir' : './testset/test5/pic', #The direction of your images
     'w' : 500,												 #The width of your final image
