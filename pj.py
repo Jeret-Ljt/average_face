@@ -17,7 +17,7 @@ def readPoints(path):
     listdir = os.listdir(path)
     listdir.sort()
     for txtFile in listdir:
-        print(txtFile)
+        #print(txtFile)
         points = []
         with open(path + txtFile) as json_file:
             data = json.load(json_file)
@@ -39,7 +39,7 @@ def readImages(path):
 
     BG = 0
     for imageFile in listdir:
-        print(imageFile)
+        #print(imageFile)
 
         if imageFile == '.DS_Store':
             continue
@@ -140,28 +140,31 @@ def main():
     h = Config['h'] # the height of the final picture
     eliminated_index, allPoints, allPoints_json = readPoints(point_dir + '/')
     BG, images = readImages(img_dir + '/')
-    print(len(allPoints[0]))
+    #print(len(allPoints[0]))
 
     pointsAvg, pointsNorm, imagesNorm = Normalization(w, h, allPoints, allPoints_json, images)
 
     output = Trianglar_affine(BG, w, h, pointsAvg, pointsNorm, imagesNorm, eliminated_index)
 
-    cv2.imshow('image', output)
-    cv2.waitKey(0)
+    #cv2.imshow('image', output)
+    #cv2.waitKey(0)
 
 
     final_output = np.zeros((h, (len(images) + 1) * (w + 5), 3), dtype = np.float32())
 
     for i, image in enumerate(imagesNorm):
         final_output[:, i * (w + 5) : i * (w + 5) + w, :] = image
-        cv2.imshow('image', final_output[:, i * (w + 5) : i * (w + 5) + w, :])
-        cv2.waitKey(0)
+        #cv2.imshow('image', final_output[:, i * (w + 5) : i * (w + 5) + w, :])
+        #cv2.waitKey(0)
     final_output[:, len(images) * (w + 5) : len(images) * (w + 5) + w, :] = output
 
     if not os.path.exists(result_dir):
         os.mkdir(result_dir)
 
     cv2.imwrite(os.path.join(result_dir, 'result.jpg'), final_output * 255)
+
+    cv2.imshow('image', final_output)
+    cv2.waitKey(0)
 
 
 if __name__ == '__main__':

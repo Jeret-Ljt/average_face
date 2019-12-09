@@ -21,7 +21,7 @@ def warpTriangle(img1, img2, t1, t2, times = 1):
 
     img2Rect = img2Rect * mask
 
-    #img2[r2[1]:r2[1] + r2[3], r2[0]:r2[0] + r2[2]] *= ([1, 1, 1] - mask)  #this step is crucial! avoid to be overpuls in the triangular edges
+    img2[r2[1]:r2[1] + r2[3], r2[0]:r2[0] + r2[2]] *= ([1, 1, 1] - mask)  #this step is crucial! avoid to be overpuls in the triangular edges
     img2[r2[1]:r2[1] + r2[3], r2[0]:r2[0] + r2[2]] += img2Rect * times
 
 
