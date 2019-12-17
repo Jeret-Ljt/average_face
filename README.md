@@ -17,7 +17,7 @@ Config = {
 ```
 
 
-main featrue of this project:
+## main featrue of this project
 
 basically most of the average projects generate the final image like those below: 
 ![image](https://github.com/Jeret-Ljt/average_face/blob/master/readme_materials/1.PNG)
