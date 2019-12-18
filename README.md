@@ -29,3 +29,5 @@ and our final images are like those:
 ![image](https://github.com/Jeret-Ljt/average_face/blob/master/testset/test1/test_result/mix.jpg)
 
 the first two images in the left are the original images, and the last is the generated one.
+
+it still needs further improvement like the color change, and the blur area, etc.
